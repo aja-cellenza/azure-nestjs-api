@@ -1,0 +1,29 @@
+{
+	"name": "NestJS API",
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
+	"remoteUser": "node",
+	"features": {
+		"ghcr.io/devcontainers-contrib/features/nestjs-cli:2": {},
+		"ghcr.io/devcontainers/features/azure-cli:1": {},
+		"ghcr.io/devcontainers/features/github-cli:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": []
+		}
+	},
+	"runArgs": [
+		"-v",
+		"${localEnv:HOME}${localEnv:USERPROFILE}/.ssh:/home/node/.ssh:ro"
+	],
+	"forwardPorts": [
+		3000
+	],
+	"postAttachCommand": "node ./index.js",
+	"portsAttributes": {
+		"3000": {
+			"label": "Application",
+			"onAutoForward": "openPreview"
+		}
+	}
+}
